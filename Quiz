@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .quiz-container {
+            background-color: #ffccf2;
+            padding: 20px;
+            border-radius: 15px;
+            width: 300px;
+            text-align: center;
+        }
+        .button {
+            background-color: #9b59b6;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 8px;
+            margin: 10px 0;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #8e44ad;
+        }
+        #result {
+            display: none;
+            font-size: 20px;
+            color: #9b59b6;
+        }
+        img {
+            width: 150px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div id="question-container">
+            <p>Hedder du Line?</p>
+            <button class="button" onclick="nextQuestion(true)">Ja</button>
+        </div>
+        <div id="question-2" style="display: none;">
+            <p>Er du fotograf?</p>
+            <button class="button" onclick="nextQuestion(true)">Ja</button>
+        </div>
+        <div id="question-3" style="display: none;">
+            <p>Hip hip...</p>
+            <button class="button" onclick="nextQuestion(true)">Huwaaaaa!</button>
+        </div>
+        <div id="result" style="display: none;">
+            <p>Huwaaaaa!</p>
+            <img src="https://cdn-free.tv2i.dk/c/o/m/communication/7/c/2/7c217ec7-4255-4d21-b78c-cd269e44461c?ixlib=js-3.8.0&w=1280&h=720&q=45&auto=format&fit=crop&rect64=MjQzLDcxLDE0OTYsODQ0&s=b654cb624da35c299fb64728a5833124" alt="Anders og Torben">
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+
+        function nextQuestion(isAnswerCorrect) {
+            if (currentQuestion === 1) {
+                document.getElementById('question-container').style.display = 'none';
+                document.getElementById('question-2').style.display = 'block';
+            } else if (currentQuestion === 2) {
+                document.getElementById('question-2').style.display = 'none';
+                document.getElementById('question-3').style.display = 'block';
+            } else if (currentQuestion === 3) {
+                document.getElementById('question-3').style.display = 'none';
+                document.getElementById('result').style.display = 'block';
+            }
+            currentQuestion++;
+        }
+    </script>
+</body>
+</html>
